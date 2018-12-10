@@ -1,5 +1,6 @@
 <?php
 
+use App\Inside\Constants;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +14,11 @@ class NewsletterTableMigration extends Migration
      */
     public function up()
     {
-        //
+        Schema::create(Constants::NEWSLETTER_DB, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class NewsletterTableMigration extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists(Constants::NEWSLETTER_DB);
     }
 }
