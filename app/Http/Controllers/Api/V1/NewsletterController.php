@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\ApiController;
 use App\Newsletter;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class NewsletterController extends Controller
+class NewsletterController extends ApiController
 {
     /**
      * Display a listing of the resource.
