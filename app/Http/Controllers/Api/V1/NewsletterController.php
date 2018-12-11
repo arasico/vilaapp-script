@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\ApiController;
 use App\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends ApiController
 {
@@ -40,6 +41,10 @@ class NewsletterController extends ApiController
             'email' => 'required|unique:newsletter|email',
         ]);
         Newsletter::create(["email" => $request->input("email")]);
+        $user = array("email" => $request->input("email"));
+        Mail::send('emails.wellcome', [], function ($m) use ($user) {
+            $m->to($user["email"], $user["email"])->subject(url('') . date('Y-m-d H:i:s'));
+        });
         return $this->respond(["status" => "success"], null);
     }
 
