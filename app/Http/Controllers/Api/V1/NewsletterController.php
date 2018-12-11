@@ -43,7 +43,7 @@ class NewsletterController extends ApiController
         Newsletter::create(["email" => $request->input("email")]);
         $user = array("email" => $request->input("email"));
         Mail::send('emails.wellcome', [], function ($m) use ($user) {
-            $m->to($user["email"], $user["email"])->subject(url('') . date('Y-m-d H:i:s'));
+            $m->to($user["email"], $user["email"])->subject("vilaapp ". date('Y-m-d H:i:s'));
         });
         return $this->respond(["status" => "success"], null);
     }
