@@ -12,4 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//Newsletter
 Route::resource('v1/newsletter', 'Api\V1\NewsletterController', ['only' => ['store']]);
+
+//Contact Us
+Route::resource('v1/contactUs', 'Api\V1\ContactUsController', ['only' => ['store']]);

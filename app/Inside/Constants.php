@@ -7,6 +7,7 @@ class Constants
 {
     //DataBase
     const NEWSLETTER_DB = 'newsletter';
+    const CONTACT_US_DB = 'contact_us';
 
 //    Const AGENT_IOS = "ios";
 //    Const AGENT_ANDROID = "android";
@@ -112,7 +113,7 @@ class Constants
 //    const USERS_REFER_DB = 'users_refer';
 //    const USERS_POINTS_HISTORY_DB = 'users_points_history';
 //    const TASKS_DB = 'tasks';
-//    const CONTACT_US_DB = 'contact_us';
+
 //
 //
 //    //mongo db constant
