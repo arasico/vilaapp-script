@@ -37,13 +37,25 @@ class ContactUsController extends ApiController
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'email',
-        ]);
         if (!$request->input("name"))
             throw new ApiException(
                 ApiException::EXCEPTION_BAD_REQUEST_400,
                 "plz check your name"
+            );
+        if (!filter_var($request->input("email"), FILTER_VALIDATE_EMAIL))
+            throw new ApiException(
+                ApiException::EXCEPTION_BAD_REQUEST_400,
+                "plz check your email"
+            );
+        if (!$request->input("phone"))
+            throw new ApiException(
+                ApiException::EXCEPTION_BAD_REQUEST_400,
+                "plz check your phone"
+            );
+        if (!$request->input("message"))
+            throw new ApiException(
+                ApiException::EXCEPTION_BAD_REQUEST_400,
+                "plz check your message"
             );
         ContactUs::create([
             "name" => $request->input("name"),
