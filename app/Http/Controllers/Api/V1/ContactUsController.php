@@ -62,6 +62,7 @@ class ContactUsController extends ApiController
             "email" => $request->input("email"),
             "phone" => $request->input("phone"),
             "message" => $request->input("message"),
+            "ipAddress" => $request->ip()
         ]);
         return $this->respond(["status" => "success"], null);
     }

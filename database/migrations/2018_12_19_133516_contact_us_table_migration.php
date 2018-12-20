@@ -20,6 +20,7 @@ class ContactUsTableMigration extends Migration
             $table->string('email');
             $table->string('phone');
             $table->longText('message');
+            $table->string('ipAddress');
             $table->timestamps();
         });
     }

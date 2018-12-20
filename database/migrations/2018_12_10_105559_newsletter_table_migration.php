@@ -17,6 +17,7 @@ class NewsletterTableMigration extends Migration
         Schema::create(Constants::NEWSLETTER_DB, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email');
+            $table->string('ipAddress');
             $table->timestamps();
         });
     }

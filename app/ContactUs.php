@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ContactUs extends Model
 {
     protected $table = Constants::CONTACT_US_DB;
-    protected $fillable = ['name', 'email', 'phone', 'message'];
+    protected $fillable = ['name', 'email', 'phone', 'message', 'ipAddress'];
 }

@@ -40,7 +40,10 @@ class NewsletterController extends ApiController
         $this->validate($request, [
             'email' => 'required|unique:newsletter|email',
         ]);
-        Newsletter::create(["email" => $request->input("email")]);
+        Newsletter::create([
+            "email" => $request->input("email"),
+            "ipAddress" => $request->ip()
+        ]);
         $user = array("email" => $request->input("email"));
         Mail::send('emails.wellcome', [], function ($m) use ($user) {
             $m->to($user["email"], $user["email"])->subject("vilaapp ". date('Y-m-d H:i:s'));

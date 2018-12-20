@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model
 {
     protected $table = Constants::NEWSLETTER_DB;
-    protected $fillable = ['email'];
+    protected $fillable = ['email', 'ipAddress'];
 }
