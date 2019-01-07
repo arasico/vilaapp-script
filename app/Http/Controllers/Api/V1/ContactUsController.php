@@ -5,10 +5,18 @@ namespace App\Http\Controllers\Api\V1;
 use App\ContactUs;
 use App\Exceptions\ApiException;
 use App\Http\Controllers\ApiController;
+use App\Inside\Helpers;
 use Illuminate\Http\Request;
 
 class ContactUsController extends ApiController
 {
+    protected $help;
+
+    public function __construct()
+    {
+        $this->help = new Helpers();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -57,10 +65,11 @@ class ContactUsController extends ApiController
                 ApiException::EXCEPTION_BAD_REQUEST_400,
                 "plz check your message"
             );
+        $phone = $this->help->phoneChecker($request->input("phone"));
         ContactUs::create([
             "name" => $request->input("name"),
             "email" => $request->input("email"),
-            "phone" => $request->input("phone"),
+            "phone" => $phone,
             "message" => $request->input("message"),
             "ipAddress" => $request->ip()
         ]);
