@@ -12,8 +12,21 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//Newsletter
-Route::resource('v1/newsletter', 'Api\V1\NewsletterController', ['only' => ['store']]);
+Route::namespace('Api\V1')->prefix('/v1')->group(function () {
 
-//Contact Us
-Route::resource('v1/contactUs', 'Api\V1\ContactUsController', ['only' => ['store']]);
+    //Newsletter
+    Route::resource('newsletter', 'NewsletterController', ['only' => ['store']]);
+
+    //Contact Us
+    Route::resource('contactUs', 'ContactUsController', ['only' => ['store']]);
+
+    //Auth otp
+    Route::post('auth/otp/sms', 'Auth\ZamanakController@postSmsRequest');
+    Route::post('auth/otp/call', 'Auth\ZamanakController@postCallRequest');
+    Route::post('auth/otp/verify', 'Auth\ZamanakController@postVerifyRequest');
+
+    //Auth email
+    Route::post('auth/email/login', 'Auth\EmailController@postLogin');
+    Route::post('auth/email/register', 'Auth\EmailController@postRegister');
+
+});

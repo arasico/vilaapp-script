@@ -8,6 +8,15 @@ class Constants
     //DataBase
     const NEWSLETTER_DB = 'newsletter';
     const CONTACT_US_DB = 'contact_us';
+    const USERS_DB = 'users';
+    const USERS_LOGIN_TOKEN_DB = 'users_login_token';
+    const USERS_LOGIN_TOKEN_LOG_DB = 'users_login_token_log';
+
+    //Login Arguments
+    Const LOGIN_TYPE_SMS = "login_with_sms";
+    Const LOGIN_TYPE_CALL = "login_with_call";
+//    Const LOGIN_TYPE_EMAIL = "login_with_email";
+//    Const LOGIN_TYPE_GMAIL = "login_with_gmail";
 
 //    Const AGENT_IOS = "ios";
 //    Const AGENT_ANDROID = "android";
@@ -58,10 +67,7 @@ class Constants
 //    const LANGUAGE_EN = "en";
 //    const LANGUAGE_FA = "fa";
 //
-//    Const LOGIN_TYPE_SMS = "login_with_sms";
-//    Const LOGIN_TYPE_CALL = "login_with_call";
-//    Const LOGIN_TYPE_EMAIL = "login_with_email";
-//    Const LOGIN_TYPE_GMAIL = "login_with_gmail";
+
 //
 //
 //    Const STATUS_TYPE_PENDING = 0;
@@ -73,7 +79,6 @@ class Constants
 //    Const FF_PROBE = '/usr/bin/ffprobe';
 //
 //
-//    const USERS_DB = 'users';
 //    const USERS_APPS_DB = 'user_apps';
 //    const USERS_STICKER_PACK_DB = 'user_sticker_pack';
 //    const USERS_SETTING_DB = 'user_setting';
@@ -87,8 +92,7 @@ class Constants
 //    const MOMENT_MEDIA_DB = 'moment_media';
 //    const MOMENT_TAGS_DB = 'moment_tags';
 //    const TAGS_DB = 'tags';
-//    const USERS_LOGIN_TOKEN_DB = 'users_login_token';
-//    const USERS_LOGIN_TOKEN_LOG_DB = 'users_login_token_log';
+
 //    const STICKER_DB = 'sticker';
 //    const STICKER_PACK_DB = 'sticker_pack';
 //    const STICKER_EMOJI_DB = 'sticker_emoji';
