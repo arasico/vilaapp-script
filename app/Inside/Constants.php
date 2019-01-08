@@ -15,6 +15,11 @@ class Constants
     //Login Arguments
     Const LOGIN_TYPE_SMS = "login_with_sms";
     Const LOGIN_TYPE_CALL = "login_with_call";
+
+    //Language
+    const LANGUAGE_EN = "en";
+    const LANGUAGE_FA = "fa";
+
 //    Const LOGIN_TYPE_EMAIL = "login_with_email";
 //    Const LOGIN_TYPE_GMAIL = "login_with_gmail";
 
@@ -64,8 +69,7 @@ class Constants
 //    const AUDIO_TYPE = ["audio/mpeg", "audio/x-wav", "audio/ogg", "audio/mp4", "audio/midi", "audio/basic", "audio/adpcm", "audio/s3m", "audio/mp3",
 //        "audio/silk", "audio/webm", "audio/m4a"];
 //
-//    const LANGUAGE_EN = "en";
-//    const LANGUAGE_FA = "fa";
+
 //
 
 //
