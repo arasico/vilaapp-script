@@ -88,7 +88,7 @@ class EmailController extends ApiController
                     'your phone is exists'
                 );
         }
-        $user = User::where(['email' => $request->input('email'), 'password' => Hash::make($request->input('password'))])->first();
+        $user = User::where(['email' => $request->input('email')])->first();
         if ($user)
             throw new ApiException(
                 ApiException::EXCEPTION_NOT_FOUND_404,
