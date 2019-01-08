@@ -31,9 +31,11 @@ class EmailController extends ApiController
                 ApiException::EXCEPTION_NOT_FOUND_404,
                 'Plz check your agent'
             );
-        $this->validate($request, [
-            'email' => 'required|email',
-        ]);
+        if (!filter_var($request->input("email"), FILTER_VALIDATE_EMAIL))
+            throw new ApiException(
+                ApiException::EXCEPTION_BAD_REQUEST_400,
+                "plz check your email"
+            );
         if (!$request->input('password'))
             throw new ApiException(
                 ApiException::EXCEPTION_NOT_FOUND_404,
@@ -61,9 +63,11 @@ class EmailController extends ApiController
                 ApiException::EXCEPTION_NOT_FOUND_404,
                 'Plz check your agent'
             );
-        $this->validate($request, [
-            'email' => 'required|email',
-        ]);
+        if (!filter_var($request->input("email"), FILTER_VALIDATE_EMAIL))
+            throw new ApiException(
+                ApiException::EXCEPTION_BAD_REQUEST_400,
+                "plz check your email"
+            );
         if (!$request->input('password'))
             throw new ApiException(
                 ApiException::EXCEPTION_NOT_FOUND_404,
