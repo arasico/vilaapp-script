@@ -28,7 +28,7 @@ class EmailController extends ApiController
     {
         if (!$request->header('agent'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your agent'
             );
         if (!filter_var($request->input("email"), FILTER_VALIDATE_EMAIL))
@@ -38,7 +38,7 @@ class EmailController extends ApiController
             );
         if (!$request->input('password'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your password'
             );
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
@@ -60,7 +60,7 @@ class EmailController extends ApiController
     {
         if (!$request->header('agent'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your agent'
             );
         if (!filter_var($request->input("email"), FILTER_VALIDATE_EMAIL))
@@ -70,32 +70,32 @@ class EmailController extends ApiController
             );
         if (!$request->input('password'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your code'
             );
         if (!$request->input('name'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your name'
             );
         $phone = '';
         if ($request->input('phone')) {
             if (!$request->input('phone'))
                 throw new ApiException(
-                    ApiException::EXCEPTION_NOT_FOUND_404,
+                    ApiException::EXCEPTION_BAD_REQUEST_400,
                     'Plz check your phone'
                 );
             $phone = $this->help->phoneChecker($request->input('phone'));
             if (User::where(['phone' => $phone])->exists())
                 throw new ApiException(
-                    ApiException::EXCEPTION_NOT_FOUND_404,
+                    ApiException::EXCEPTION_BAD_REQUEST_400,
                     'your phone is exists'
                 );
         }
         $user = User::where(['email' => $request->input('email')])->first();
         if ($user)
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'this email is exists'
             );
         $hashIds = new Hashids(config("config.hashIds"));
@@ -123,17 +123,17 @@ class EmailController extends ApiController
     {
         if (!$request->header('uuid'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your uuid'
             );
         if (!$request->header('app'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your app'
             );
         if (!$request->header('agent'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your agent'
             );
         $curl = curl_init();

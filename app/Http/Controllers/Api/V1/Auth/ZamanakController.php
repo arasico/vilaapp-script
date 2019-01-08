@@ -50,7 +50,7 @@ class ZamanakController extends ApiController
         ]);
         if (isset($result['error']) != null)
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 $result['error']
             );
         return $this->respond(["status" => "success"], null);
@@ -86,7 +86,7 @@ class ZamanakController extends ApiController
         ]);
         if (isset($result['error']) != null)
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 $result['error']
             );
         return $this->respond(["status" => "success"], null);
@@ -96,18 +96,18 @@ class ZamanakController extends ApiController
     {
         if (!$request->input('code'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your code'
             );
         if (!$request->header('agent'))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'Plz check your agent'
             );
         $phone = $this->help->phoneChecker($request->input('mobile'));
         if (!$this->CheckUsersLoginToken($phone, $request->input('code')))
             throw new ApiException(
-                ApiException::EXCEPTION_NOT_FOUND_404,
+                ApiException::EXCEPTION_BAD_REQUEST_400,
                 'code isn`t true'
             );
         return $this->respond($this->verify($phone, $request->header('agent'), $request->input("refLink")));
