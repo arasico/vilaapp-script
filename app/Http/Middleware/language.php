@@ -20,6 +20,12 @@ class language
      */
     public function handle($request, Closure $next)
     {
+        $input = array_map(function ($input) {
+            if (is_array($input)) {
+                return array_map(array($this, 'safeTrim'), $input);
+            }
+            return trim($input);
+        }, $request->all());
         switch ($request->header('language')) {
             case Constants::LANGUAGE_EN:
                 App::setLocale(Constants::LANGUAGE_EN);
@@ -33,6 +39,16 @@ class language
                     'Plz check your language header'
                 );
         }
+        $input['language'] = $request->header('language');
+        $request->replace($input);
         return $next($request);
+    }
+
+    private function safeTrim($input)
+    {
+        if (is_array($input)) {
+            return array_map(array($this, 'safeTrim'), $input);
+        }
+        return trim($input);
     }
 }

@@ -20,6 +20,9 @@ Route::namespace('Api\V1')->prefix('/v1')->group(function () {
     //Contact Us
     Route::resource('contactUs', 'ContactUsController', ['only' => ['store']]);
 
+    //Country
+    Route::resource('country', 'CountryController', ['only' => ['index']]);
+
     //Auth otp
     Route::post('auth/otp/sms', 'Auth\ZamanakController@postSmsRequest');
     Route::post('auth/otp/call', 'Auth\ZamanakController@postCallRequest');
