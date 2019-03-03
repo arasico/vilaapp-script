@@ -32,4 +32,13 @@ Route::namespace('Api\V1')->prefix('/v1')->group(function () {
     Route::post('auth/email/login', 'Auth\EmailController@postLogin');
     Route::post('auth/email/register', 'Auth\EmailController@postRegister');
 
+    //After Login
+    Route::middleware('loginCheck')->group(function () {
+
+        //Place
+        Route::post('place', 'PlaceController@update');
+        Route::resource('place', 'PlaceController', ['only' => ['index', 'show', 'store', 'destroy']]);
+
+    });
+
 });
