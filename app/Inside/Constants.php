@@ -15,6 +15,7 @@ class Constants
     const TYPE_DB = 'type';
     const PLACE_DB = 'place';
     const PLACE_PROPERTY_DB = 'place_property';
+    const PLACE_SERVICES_DB = 'place_services';
     const PLACE_GALLERY_DB = 'place_gallery';
 
     //Login Arguments
