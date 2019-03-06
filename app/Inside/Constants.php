@@ -12,6 +12,10 @@ class Constants
     const USERS_LOGIN_TOKEN_DB = 'users_login_token';
     const USERS_LOGIN_TOKEN_LOG_DB = 'users_login_token_log';
     const COUNTRY_DB = 'country';
+    const TYPE_DB = 'type';
+    const PLACE_DB = 'place';
+    const PLACE_PROPERTY_DB = 'place_property';
+    const PLACE_GALLERY_DB = 'place_gallery';
 
     //Login Arguments
     Const LOGIN_TYPE_SMS = "login_with_sms";
