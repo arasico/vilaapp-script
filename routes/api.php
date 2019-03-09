@@ -23,6 +23,9 @@ Route::namespace('Api\V1')->prefix('/v1')->group(function () {
     //Country
     Route::resource('country', 'CountryController', ['only' => ['index']]);
 
+    //type
+    Route::resource('type', 'TypeController', ['only' => ['index']]);
+
     //Auth otp
     Route::post('auth/otp/sms', 'Auth\ZamanakController@postSmsRequest');
     Route::post('auth/otp/call', 'Auth\ZamanakController@postCallRequest');
